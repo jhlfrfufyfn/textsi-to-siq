@@ -1,0 +1,14 @@
+<question price="">
+    <info>
+        <authors></authors>
+        <sources>
+            <source></source>
+        </sources>
+    </info>
+    <scenario>
+        <atom></atom>
+    </scenario>
+    <right>
+        <answer></answer>
+    </right>
+</question>
