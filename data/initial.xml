@@ -7,9 +7,5 @@
         </comments>
     </info>
     <rounds>
-        <round name="Основной раунд">
-            <themes>
-            </themes>
-        </round>
     </rounds>
 </package>

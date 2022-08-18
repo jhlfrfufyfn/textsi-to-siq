@@ -7,12 +7,11 @@ export class Packet {
     id: string;
     rounds: Round[];
 
-    constructor(name: string, author: string, rounds?: Round[]) {
-        this.name = name;
+    constructor(name?: string, author: string = "not defined", rounds?: Round[]) {
+        this.name = name ?? "";
         this.author = author;
         this.date = new Date();
         this.id = uuidv4();
-        this.rounds = rounds ?? [];
+        this.rounds = rounds ?? [new Round("Основной раунд")];
     }
-
 }
