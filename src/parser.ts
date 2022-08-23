@@ -5,6 +5,13 @@ import { Theme } from "./theme.entity";
 
 export class Parser {
 
+    private static rmNewlines(text: string, removeSlashN: boolean = false) {
+        text = text.replaceAll('\r', '');
+        if (removeSlashN) {
+            text = text.replaceAll('\n', '');
+        }
+        return text;
+    }
 
     static textToPacket(text: string, questionRegexStr: string, themeRegexStr: string): Packet {
         /// text preprocessing (remove \r for example)
@@ -31,7 +38,7 @@ export class Parser {
             /// processing question
             if (themeIndex === -1 || (questionIndex !== -1 && questionIndex < themeIndex)) {
                 const result = questionRegex.exec(text)!;
-                
+
                 const question = new Question();
 
                 const fullQuestion = result[0];
@@ -40,36 +47,36 @@ export class Parser {
                 if (parsedPrice === undefined) {
                     throw new Error("error: parsing question price failed. question text: " + fullQuestion);
                 }
-                question.price = +parsedPrice;
+                question.price = +Parser.rmNewlines(parsedPrice);
 
                 const parsedProblem = result?.groups?.problem;
                 if (parsedProblem === undefined) {
                     throw new Error("error: parsing question failed. question text: " + fullQuestion);
                 }
-                question.problem = parsedProblem;
+                question.problem = Parser.rmNewlines(parsedProblem);
 
                 const parsedAnswer = result?.groups?.answer;
                 if (parsedAnswer === undefined) {
                     throw new Error("error: parsing answer failed. question text: " + fullQuestion);
                 }
-                question.answer.push(parsedAnswer);
-                
+                question.answer.push(Parser.rmNewlines(parsedAnswer));
+
                 const parsedAccept = result?.groups?.accept;
                 if (parsedAccept) {
-                    question.answer.push(parsedAccept);
+                    question.answer.push(Parser.rmNewlines(parsedAccept));
                 }
-                
+
                 const parsedComment = result?.groups?.comment;
                 if (parsedComment) {
-                    question.comment = parsedComment;
+                    question.comment = Parser.rmNewlines(parsedComment);
                 }
 
                 const parsedSource = result?.groups?.source;
                 if (parsedSource) {
-                    question.source = parsedSource;
+                    question.source = Parser.rmNewlines(parsedSource);
                 }
-                
-                const lastTheme =  packet.rounds[0].themes.at(-1);
+
+                const lastTheme = packet.rounds[0].themes.at(-1);
                 if (lastTheme === undefined) {
                     throw new Error("error: question created without existing theme. question text: " + fullQuestion);
                 }
@@ -86,16 +93,16 @@ export class Parser {
                 if (parsedName === undefined) {
                     throw new Error("error: parsing question price failed. question text: " + fullQuestion);
                 }
-                theme.name = parsedName;
+                theme.name = Parser.rmNewlines(parsedName);
 
                 const parsedComment = result?.groups?.comment;
                 if (parsedComment) {
-                    theme.comment = parsedComment;
+                    theme.comment = Parser.rmNewlines(parsedComment);
                 }
 
                 packet.rounds[0].themes.push(theme);
             }
-            
+
             lastIndex = Math.max(themeRegex.lastIndex, questionRegex.lastIndex);
             themeRegex.lastIndex = lastIndex;
             questionRegex.lastIndex = lastIndex;

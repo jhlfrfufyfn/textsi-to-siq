@@ -1,7 +1,7 @@
 {
   "name": "textsi-to-siq",
   "version": "1.0.0",
-  "description": "Converter from raw, textual SI packets to .siq packets.",
+  "description": "Converts raw, textual SI packets to .siq packets.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -22,6 +22,7 @@
     "@types/node": "^18.6.3",
     "@types/xml2js": "^0.4.11",
     "escape-string-regexp": "^5.0.0",
+    "jszip": "^3.10.1",
     "ts-node": "^10.9.1",
     "uuid": "^8.3.2",
     "xml-js": "^1.6.11",
