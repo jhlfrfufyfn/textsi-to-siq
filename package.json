@@ -1,7 +1,7 @@
 {
   "name": "textsi-to-siq",
   "version": "1.0.0",
-  "description": "Converts raw, textual SI packets to .siq packets.",
+  "description": "Converts handwritten, textual SI packets to .siq packets.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -9,8 +9,8 @@
     "clear": "rimraf dist/",
     "test": "jest"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "jhlfrfufyfn",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^28.1.7",
     "@types/uuid": "^8.3.4",
