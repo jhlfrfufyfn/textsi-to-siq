@@ -35,14 +35,14 @@ export class SiqWriter {
 
                     themeObject.theme.questions.question.push(questionObject.question);
                 }
-             
+
                 currentRoundObject.themes.theme.push(themeObject.theme);
             }
-            packetTemplate.package.rounds.round.push(currentRoundObject); 
+            packetTemplate.package.rounds.round.push(currentRoundObject);
         }
-        
-        const generatedXml = xmljs.js2xml(packetTemplate, { spaces: '\t', compact: true, fullTagEmptyElement: true});
-        
+
+        const generatedXml = xmljs.js2xml(packetTemplate, { spaces: '\t', compact: true, fullTagEmptyElement: true });
+
         return generatedXml;
     }
 
@@ -54,7 +54,7 @@ export class SiqWriter {
         siqZip.folder("Texts");
         siqZip.folder("Audio");
 
-        const stream = siqZip.generateNodeStream({type:'nodebuffer',streamFiles:true});
+        const stream = siqZip.generateNodeStream({ type: 'nodebuffer', streamFiles: true });
         return stream;
     }
 }

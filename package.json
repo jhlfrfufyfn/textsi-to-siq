@@ -1,11 +1,11 @@
 {
-  "name": "textsi-to-siq",
+  "name": "si-parser",
   "version": "1.0.1",
-  "description": "Converts handwritten, textual SI packets to .siq packets.",
+  "description": "Converts handwritten SI packets to .siq packets.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "npm run build && npx ts-node src/test.ts",
+    "start": "npm run build && npx ts-node test/test_siqreader.ts",
     "clear": "rimraf dist/",
     "test": "jest"
   },
