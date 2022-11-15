@@ -6,3 +6,4 @@ export { Round } from "./round.entity";
 
 export { Parser } from './parser';
 export { SiqWriter } from './siqwriter';
+export { SiqReader } from './siqreader';
