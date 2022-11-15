@@ -9,6 +9,10 @@
     "clear": "rimraf dist/",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jhlfrfufyfn/text-to-siq.git"
+  },
   "author": "jhlfrfufyfn",
   "license": "MIT",
   "devDependencies": {
