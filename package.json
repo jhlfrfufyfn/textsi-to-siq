@@ -1,6 +1,6 @@
 {
-  "name": "si-parser",
-  "version": "1.0.1",
+  "name": "textsi-to-siq",
+  "version": "1.0.2",
   "description": "Converts handwritten SI packets to .siq packets.",
   "main": "dist/index.js",
   "scripts": {
