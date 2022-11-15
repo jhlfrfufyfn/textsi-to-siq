@@ -1,8 +1,9 @@
 {
   "name": "textsi-to-siq",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Converts handwritten SI packets to .siq packets.",
   "main": "dist/src/index.js",
+  "types": "dist/src/index.d.js",
   "scripts": {
     "build": "tsc",
     "start": "npm run build && npx ts-node test/test_siqreader.ts",
