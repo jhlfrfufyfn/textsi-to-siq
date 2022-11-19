@@ -22,4 +22,4 @@ async function testSiqToPacket() {
     }
 }
 
-testSiqToPacket();
+testXmlToPacket();

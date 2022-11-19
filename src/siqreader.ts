@@ -35,10 +35,15 @@ export class SiqReader {
                 theme.questions = [];
                 const questionObjects = themeObject.questions.question;
                 for (const questionObject of questionObjects) {
+                    if (!(questionObject.right.answer instanceof Array)) {
+                        questionObject.right.answer = [questionObject.right.answer];
+                    }
+                    const answers = questionObject.right.answer.map((answer: any) => answer._text);
+                    console.log(answers);
                     const question = new Question(
                         +questionObject._attributes.price,
                         questionObject.scenario.atom._text,
-                        questionObject.right.answer._text,
+                        answers,
                         questionObject.info.comments._text,
                         questionObject.info.sources.source._text
                     );
