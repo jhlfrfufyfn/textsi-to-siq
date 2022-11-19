@@ -36,11 +36,11 @@ export class SiqReader {
                 const questionObjects = themeObject.questions.question;
                 for (const questionObject of questionObjects) {
                     const question = new Question(
-                        questionObject._attributes.price,
-                        questionObject.scenario.atom,
-                        questionObject.right.answer,
-                        questionObject.info.comments,
-                        questionObject.info.sources.source
+                        +questionObject._attributes.price,
+                        questionObject.scenario.atom._text,
+                        questionObject.right.answer._text,
+                        questionObject.info.comments._text,
+                        questionObject.info.sources.source._text
                     );
                     theme.questions.push(question);
                 }
