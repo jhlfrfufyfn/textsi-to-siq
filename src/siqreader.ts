@@ -39,7 +39,6 @@ export class SiqReader {
                         questionObject.right.answer = [questionObject.right.answer];
                     }
                     const answers = questionObject.right.answer.map((answer: any) => answer._text);
-                    console.log(answers);
                     const question = new Question(
                         +questionObject._attributes.price,
                         questionObject.scenario.atom._text,
