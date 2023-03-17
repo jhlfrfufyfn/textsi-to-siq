@@ -1,10 +1,8 @@
-import { parse } from "path";
-import { Packet } from "./packet.entity";
-import { Question } from "./question.entity";
-import { Theme } from "./theme.entity";
+import { Packet } from "./entities/packet.entity";
+import { Question } from "./entities/question.entity";
+import { Theme } from "./entities/theme.entity";
 
 export class Parser {
-
     private static rmNewlines(text: string, removeSlashN: boolean = false) {
         text = text.replaceAll('\r', '');
         if (removeSlashN) {

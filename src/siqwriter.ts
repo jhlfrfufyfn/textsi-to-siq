@@ -1,6 +1,5 @@
-import { Packet } from "./packet.entity";
+import { Packet } from "./entities/packet.entity";
 import * as fsPromise from 'fs/promises';
-import * as fs from 'fs';
 import * as xmljs from 'xml-js';
 import JSZip from "jszip";
 

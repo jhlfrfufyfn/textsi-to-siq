@@ -1,9 +1,9 @@
 import JSZip from "jszip";
 import * as xmljs from 'xml-js';
-import { Packet } from "./packet.entity";
-import { Question } from "./question.entity";
-import { Round } from "./round.entity";
-import { Theme } from "./theme.entity";
+import { Packet } from "./entities/packet.entity";
+import { Question } from "./entities/question.entity";
+import { Round } from "./entities/round.entity";
+import { Theme } from "./entities/theme.entity";
 
 export class SiqReader {
     static async SiqToXml(siq: Buffer) {
