@@ -1,9 +1,9 @@
 import JSZip from "jszip";
 import * as xmljs from 'xml-js';
-import { Packet } from "./packet.entity";
-import { Question } from "./question.entity";
-import { Round } from "./round.entity";
-import { Theme } from "./theme.entity";
+import { Packet } from "./entities/packet.entity";
+import { Question } from "./entities/question.entity";
+import { Round } from "./entities/round.entity";
+import { Theme } from "./entities/theme.entity";
 
 export class SiqReader {
     static async SiqToXml(siq: Buffer) {
@@ -35,12 +35,16 @@ export class SiqReader {
                 theme.questions = [];
                 const questionObjects = themeObject.questions.question;
                 for (const questionObject of questionObjects) {
+                    if (!(questionObject.right.answer instanceof Array)) {
+                        questionObject.right.answer = [questionObject.right.answer];
+                    }
+                    const answers = questionObject.right.answer.map((answer: any) => answer._text);
                     const question = new Question(
-                        questionObject._attributes.price,
-                        questionObject.scenario.atom,
-                        questionObject.right.answer,
-                        questionObject.info.comments,
-                        questionObject.info.sources.source
+                        +questionObject._attributes.price,
+                        questionObject.scenario.atom._text,
+                        answers,
+                        questionObject.info.comments._text,
+                        questionObject.info.sources.source._text
                     );
                     theme.questions.push(question);
                 }
